@@ -36,3 +36,20 @@ class Solution:
             curr.next = revHead
             curr = tail
         return dummyNode.next
+
+
+#SECOND METHOD
+def pairWiseSwap(head):
+    if not head:
+        return head
+    dummyNode = Node(-1)
+    dummyNode.next = head
+    curr = dummyNode
+    while curr.next and curr.next.next:
+        first = curr.next
+        sec = curr.next.next
+        first.next = sec.next
+        sec.next = first
+        curr.next = sec
+        curr = curr.next.next
+    return dummyNode.next

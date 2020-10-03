@@ -5,7 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def inorderTraversal(self, root: TreeNode) -> List[int]:
+    def preorderTraversal(self, root: TreeNode) -> List[int]:
         if not root:
             return []
         result = []
@@ -13,11 +13,10 @@ class Solution:
         node = root
         while stack or node:
             while node:
-                stack.append(node)   # same as the step in recursion of storing in call stack
+                result.append(node.val)    #append here only as opposed to inorder traversal
+                stack.append(node)
                 node = node.left
             node = stack.pop()
-            result.append(node.val)
             node = node.right
         return result
-        
         
